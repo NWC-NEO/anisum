@@ -1,0 +1,68 @@
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #20242b;
+  background: #f6f7f9;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: min(70rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  padding-block: 1rem;
+  border-bottom: 1px solid #dce0e6;
+  background: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+main {
+  padding-block: 2rem 3rem;
+}
+
+h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+
+.card {
+  padding: 1.25rem;
+  border: 1px solid #dce0e6;
+  border-radius: 0.5rem;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+.card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  color: #4e5868;
+  font-size: 0.875rem;
+}
+
+.card-details p {
+  margin: 0;
+}
+
+.card-description {
+  margin: 0.75rem 0 0;
+}

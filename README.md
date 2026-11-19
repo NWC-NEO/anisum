@@ -25,6 +25,7 @@ AniSum объединяет информацию об отслеживаемых
 - Java 21
 - Maven
 - Spring Boot
+- HTML, CSS, JavaScript и Vite
 - PostgreSQL
 
 ## Локальная сборка
@@ -38,6 +39,25 @@ AniSum объединяет информацию об отслеживаемых
 ```bash
 mvn clean package
 ```
+
+## Локальный запуск
+
+Из корневого каталога проекта запустить backend на порту 8080:
+
+```bash
+mvn -pl backend/anisum-api spring-boot:run
+```
+
+Для frontend нужны Node.js 22.12 или более новая версия и npm. В отдельном терминале выполнить:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Открыть http://localhost:5173. Vite перенаправляет запросы `/api/*` на backend.
+Для сборки frontend выполнить `npm run build` в каталоге `frontend/`.
 
 ## Статус разработки
 
