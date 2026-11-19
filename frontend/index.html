@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Каталог аниме | AniSum</title>
+    <link rel="stylesheet" href="/src/styles.css">
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">AniSum</div>
+    </header>
+    <main class="container">
+      <h1>Каталог аниме</h1>
+      <p id="catalog-status" role="status">Загрузка каталога…</p>
+      <div id="catalog" class="catalog"></div>
+    </main>
+
+    <template id="anime-card">
+      <article class="card">
+        <h2 class="card-title"></h2>
+        <div class="card-details">
+          <p>Год выхода <span class="card-year"></span></p>
+          <p>Эпизодов <span class="card-episodes"></span></p>
+        </div>
+        <p class="card-description"></p>
+      </article>
+    </template>
+  </body>
+</html>
