@@ -14,19 +14,29 @@ import java.util.List;
 @RequestMapping("/api/anime")
 public class AnimeController {
 
-    private final MockAnimeCatalog catalog;
+    private final MockAnimeCatalog animeCatalog;
 
-    public AnimeController(MockAnimeCatalog catalog) {
-        this.catalog = catalog;
+    public AnimeController(MockAnimeCatalog animeCatalog) {
+        this.animeCatalog = animeCatalog;
     }
 
     @GetMapping
     public List<AnimeDto> getAllAnime() {
-        return catalog.findAll();
+        return animeCatalog.findAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<AnimeDto> getAnimeById(@PathVariable Long id) {
-        return ResponseEntity.of(catalog.findById(id));
+        return ResponseEntity.of(animeCatalog.findById(id));
+    }
+
+    @GetMapping("/{id}/franchise-parts")
+    public ResponseEntity<List<AnimeDto>> getFranchisePartsByAnimeId(@PathVariable Long id) {
+        if (animeCatalog.findById(id).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<AnimeDto> franchise = animeCatalog.findFranchiseByAnimeId(id);
+        return ResponseEntity.ok(franchise);
     }
 }
