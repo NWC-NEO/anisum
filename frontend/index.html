@@ -3,28 +3,57 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Каталог аниме | AniSum</title>
+    <title>AniSum — каталог аниме</title>
     <link rel="stylesheet" href="/src/styles.css">
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <header class="site-header">
-      <div class="container">AniSum</div>
+      <div class="container">
+        <a class="brand" href="/">AniSum</a>
+      </div>
     </header>
-    <main class="container">
-      <h1>Каталог аниме</h1>
-      <p id="catalog-status" role="status">Загрузка каталога…</p>
-      <div id="catalog" class="catalog"></div>
-    </main>
+
+    <main id="app" class="container" aria-live="polite"></main>
 
     <template id="anime-card">
-      <article class="card">
+      <a class="card" href="/">
         <h2 class="card-title"></h2>
         <div class="card-details">
-          <p>Год выхода <span class="card-year"></span></p>
-          <p>Эпизодов <span class="card-episodes"></span></p>
+          <p>Год выхода: <span class="card-year"></span></p>
+          <p>Эпизодов: <span class="card-episodes"></span></p>
         </div>
         <p class="card-description"></p>
+      </a>
+    </template>
+
+    <template id="anime-detail">
+      <article class="anime-detail">
+        <a class="back-link" href="/">← К каталогу</a>
+        <h1 class="anime-title"></h1>
+        <p class="anime-meta"></p>
+        <p class="anime-description"></p>
+
+        <section class="franchise" aria-labelledby="franchise-heading">
+          <h2 id="franchise-heading">Другие части франшизы</h2>
+          <ul class="franchise-links"></ul>
+        </section>
+
+        <section class="episodes" aria-labelledby="episodes-heading">
+          <h2 id="episodes-heading">Эпизоды</h2>
+          <p class="episodes-empty" hidden>Для этого аниме пока нет описаний эпизодов.</p>
+          <div class="episodes-layout">
+            <ol class="episode-list"></ol>
+            <article class="episode-info" aria-live="polite">
+              <h3 class="episode-title"></h3>
+              <p class="episode-description"></p>
+              <div class="episode-controls">
+                <button type="button" class="episode-prev">← Предыдущий</button>
+                <button type="button" class="episode-next">Следующий →</button>
+              </div>
+            </article>
+          </div>
+        </section>
       </article>
     </template>
   </body>

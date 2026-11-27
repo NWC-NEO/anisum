@@ -5,64 +5,57 @@
   background: #f6f7f9;
 }
 
-body {
-  margin: 0;
-}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: #234f91; }
+a:focus-visible, button:focus-visible { outline: 3px solid #2e6fc2; outline-offset: 3px; }
 
-.container {
-  width: min(70rem, calc(100% - 2rem));
-  margin-inline: auto;
-}
+.container { width: min(70rem, calc(100% - 2rem)); margin-inline: auto; }
+.site-header { padding-block: 1rem; border-bottom: 1px solid #dce0e6; background: #fff; }
+.brand { color: #20242b; font-weight: 700; font-size: 1.125rem; text-decoration: none; }
+main { padding-block: 2rem 3rem; }
+h1 { margin: 0 0 1.25rem; font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.2; }
+h2 { font-size: 1.25rem; }
 
-.site-header {
-  padding-block: 1rem;
-  border-bottom: 1px solid #dce0e6;
-  background: #fff;
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-main {
-  padding-block: 2rem 3rem;
-}
-
-h1 {
-  margin: 0 0 1.25rem;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.2;
-}
-
-.catalog {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  gap: 1rem;
-}
-
+.catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1rem; }
 .card {
-  padding: 1.25rem;
-  border: 1px solid #dce0e6;
-  border-radius: 0.5rem;
-  background: #fff;
-  overflow-wrap: anywhere;
+  display: block; padding: 1.25rem; border: 1px solid #dce0e6; border-radius: 0.5rem;
+  background: #fff; text-decoration: none; color: inherit; overflow-wrap: anywhere;
 }
+.card:hover { border-color: #9bb4d5; box-shadow: 0 2px 8px rgb(32 36 43 / 8%); }
+.card-title { margin: 0 0 0.5rem; }
+.card-details { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; color: #4e5868; font-size: 0.875rem; }
+.card-details p { margin: 0; }
+.card-description { margin: 0.75rem 0 0; }
 
-.card-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
+.back-link { display: inline-block; margin-bottom: 1.25rem; }
+.anime-detail { overflow-wrap: anywhere; }
+.anime-meta { color: #4e5868; }
+.anime-description { max-width: 70ch; }
+.franchise, .episodes { margin-top: 2rem; }
+.franchise-links { padding-left: 1.4rem; }
+.franchise-links li + li { margin-top: 0.3rem; }
+
+.episodes-layout { display: grid; grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr); gap: 1rem; align-items: start; }
+.episode-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.4rem; }
+.episode-choice {
+  width: 100%; border: 1px solid #dce0e6; border-radius: 0.5rem; padding: 0.65rem 0.8rem;
+  background: #fff; color: inherit; text-align: left; cursor: pointer; font: inherit;
 }
-
-.card-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1rem;
-  color: #4e5868;
-  font-size: 0.875rem;
+.episode-choice:hover { background: #eef3fa; }
+.episode-choice[aria-pressed="true"] { border-color: #346cb4; background: #e9f1fc; font-weight: 600; }
+.episode-info { min-height: 12rem; background: #fff; border: 1px solid #dce0e6; border-radius: 0.5rem; padding: 1.25rem; }
+.episode-title { margin: 0; }
+.episode-description { white-space: pre-line; }
+.episode-controls { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.5rem; }
+.episode-controls button {
+  border: 1px solid #b4c2d4; border-radius: 0.5rem; padding: 0.6rem 0.85rem;
+  background: #f8fafc; color: inherit; font: inherit; cursor: pointer;
 }
+.episode-controls button:disabled { cursor: not-allowed; opacity: 0.45; }
+.status-error { color: #a52626; }
+.status-message { color: #4e5868; }
 
-.card-details p {
-  margin: 0;
-}
-
-.card-description {
-  margin: 0.75rem 0 0;
+@media (max-width: 720px) {
+  .episodes-layout { grid-template-columns: 1fr; }
 }
